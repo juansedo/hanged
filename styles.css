@@ -1,0 +1,150 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400&family=Rowdies:wght@300;400&display=swap');
+
+/**HTML**/
+
+html {
+    font-size: 62.5%;
+    /*rem = 10px*/
+    box-sizing: border-box;
+    margin: 0;
+}
+
+
+/**ALL**/
+
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+}
+
+::-webkit-input-placeholder,
+input[type="text"],
+input[type="password"],
+textarea {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1.7rem;
+}
+
+::-ms-input-placeholder,
+input[type="text"],
+input[type="password"],
+textarea {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1.7rem;
+}
+
+::-moz-placeholder,
+input[type="text"],
+input[type="password"],
+textarea {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1.7rem;
+}
+
+
+/**BODY**/
+
+body {
+    margin: 0;
+    font-family: 'Open Sans', sans-serif;
+    line-height: 1.5;
+    font-size: 2rem;
+}
+
+
+/**LOGIN BOX**/
+.login-box {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 45rem;
+    border-radius: 2rem;
+    background-color: white;
+    -webkit-box-shadow: 0px 0px 20px 3px rgba(0,0,0,0.1);
+    -moz-box-shadow: 0px 0px 20px 3px rgba(0,0,0,0.1);
+    box-shadow: 0px 0px 20px 3px rgba(0,0,0,0.1);
+}
+
+.login-box .title {
+    margin: 3rem;
+}
+
+.login-box form {
+    margin:3rem;
+}
+
+.input-underlined {
+    position: relative;
+    background: none;
+    border: none;
+    padding: 0;
+    display: block;
+    margin-bottom: 2rem;
+}
+
+.input-underlined>input {
+    background: none;
+    border: none;
+    border-bottom: 0.3rem solid rgb(247,148,29);
+    width: 100%;
+    font-size: 1.7rem;
+    padding: 3rem 1rem 1.25rem 1rem;
+}
+
+.input-underlined>.input-placeholder {
+    position: absolute;
+    color: rgb(247,148,29);
+    top: 2.9rem;
+    left: 1rem;
+    font-size: 1.9rem;
+    font-weight: 600;
+    transition: all 200ms;
+}
+
+.input-underlined>input:focus+.input-placeholder,
+.input-underlined>input:valid+.input-placeholder {
+    top: 0;
+    font-size: 1.3rem;
+}
+
+#animation {
+    animation-name: rainbow;
+    animation-duration: 20s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    animation-timing-function: ease;
+}
+
+@keyframes rainbow {
+    0% {
+        background-color: #9BC53D;
+        top: 0px;
+    }
+
+    20% {
+        background-color: #4CB944;
+        top: 0px;
+    }
+
+    40% {
+        background-color: #246EB9;
+        top: 50px;
+    }
+
+    60% {
+        background-color: #5BC0EB;
+        top: 50px;
+    }
+
+    80% {
+        background-color: #FDE74C;
+        top: 0px;
+    }
+
+    100% {
+        background-color: #F5EE9E;
+        top: 0px;
+    }
+}
