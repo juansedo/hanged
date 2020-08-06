@@ -42,7 +42,6 @@ textarea {
     font-size: 1.7rem;
 }
 
-
 /**BODY**/
 
 body {
@@ -109,6 +108,13 @@ body {
     font-size: 1.3rem;
 }
 
+.input-helper {
+    color: red;
+    font-size: 1.6rem;
+    font-weight: 400;
+    margin: 0 3rem;
+}
+
 #animation {
     animation-name: rainbow;
     animation-duration: 20s;
@@ -147,4 +153,17 @@ body {
         background-color: #F5EE9E;
         top: 0px;
     }
+}
+
+input.button {
+    display: block;
+    border: none;
+    border-radius: 0.5rem;
+    min-width: 20rem;
+    color: white;
+    font-family: 'Open Sans', sans-serif;
+    background-color: #F7941D;
+    font-size: 2.5rem;
+    padding: 0.8rem;
+    margin: 0 auto;
 }
