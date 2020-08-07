@@ -9,7 +9,6 @@ html {
     margin: 0;
 }
 
-
 /**ALL**/
 
 *,
@@ -51,6 +50,10 @@ body {
     font-size: 2rem;
 }
 
+a {
+    text-decoration: none;
+    color: black;
+}
 
 /**LOGIN BOX**/
 .login-box {
@@ -166,4 +169,106 @@ input.button {
     font-size: 2.5rem;
     padding: 0.8rem;
     margin: 0 auto;
+    transition: all 100ms;
+}
+
+input.button:hover {
+    box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.2);
+    transform: scale(1.05);
+    transition: all 100ms;
+}
+
+
+form.hanged-input {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+form.hanged-input .button {
+    margin: 0;
+}
+
+header {
+    padding: 0 2rem;
+}
+
+header .title {
+    float: left;
+}
+
+header #logout {
+    float: right;
+}
+
+.clear {
+    clear: both;
+}
+
+.disabled {
+    display: none;
+    visibility: hidden;
+}
+
+.game-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin: 5rem;
+}
+
+.hangman {
+    position: relative;
+    width: 45rem;
+    height: 70rem;
+}
+
+.game-section {
+    align-self: center;
+}
+
+#hang {
+    position: absolute;
+    width: 45rem;
+}
+
+#head {
+    position: absolute;
+    width: 15rem;
+    top: 18rem;
+    left: 37rem;
+}
+
+#body {
+    position: absolute;
+    width: 3rem;
+    top: 32rem;
+    left: 43.5rem;
+}
+
+#arms {
+    position: absolute;
+    width: 27rem;
+    top: 38rem;
+    left: 30rem;
+}
+
+#lleg {
+    position: absolute;
+    width: 8rem;
+    top: 50rem;
+    left: 39rem;
+}
+
+#rleg {
+    position: absolute;
+    width: 8rem;
+    top: 50rem;
+    left: 45rem;
+}
+
+p#word {
+    font-size: 4rem;
+    font-weight: 600;
+    text-align: center;
+    color: black;
+    margin-bottom: 10rem;
 }
