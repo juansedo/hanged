@@ -15,11 +15,11 @@ if (isset($_GET['seed'])) {
     $seed = $_GET['seed'];
     $playing = "";
     $words = array(
-        "Hola",
-        "Camino",
-        "Bebe",
-        "Reloj",
-        "Ancheta"
+        "HOLA",
+        "CAMINO",
+        "BEBE",
+        "RELOJ",
+        "ANCHETA"
     );
     $word = $words[$_GET['seed']];
 }
@@ -32,11 +32,13 @@ if (isset($_POST['play'])) {
 }
 
 if (isset($_POST['ch'])) {
-    checkLife($lifes, $_POST['ch'], $word);
+    $upperch = strtoupper($_POST['ch']);
+    checkLife($lifes, $upperch, $word);
     header("Location: game.php?user=".urlencode($_GET['user']).
                                 "&lifes=".$lifes.
                                 "&seed=".urlencode($_GET['seed']).
-                                "&ch=".$attempts.urlencode($_POST['ch']));
+                                "&ch=".$attempts.urlencode($upperch)
+    );
     return;
 }
 
@@ -78,7 +80,7 @@ function checkLife(&$lifes, $ch, $word) {
             return;
         }
     }
-    $lifes--;
+    if ($lifes > 0) $lifes--;
     return;
 }
 
@@ -148,11 +150,13 @@ changeDisplay($display, $lifes);
         <h2 id="logout">
             <a href="index.php">Logout</a>
         </h2>
+        <div class="clear"></div>
+        
+        <form method="POST">
+            <input class="button" type="submit" name="play" value="Play">
+        </form>
     </header>
-    <div class="clear"></div>
-    <form method="POST">
-        <input class="button" type="submit" name="play" value="Play">
-    </form>
+    
     
     <div class="game-grid <?=htmlentities($playing)?>">
         <div class= "hangman">
