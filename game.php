@@ -4,6 +4,7 @@ $playing = "disabled";
 $word = "";
 $seed = "";
 $attempts = isset($_GET['ch'])? $_GET['ch']: "";
+$lifes = isset($_GET['lifes'])? $_GET['lifes']: -1;
 
 if ( !isset($_GET['user']) || strlen($_GET['user']) < 1) {
     header("Location: index.php");
@@ -16,7 +17,7 @@ if (isset($_GET['seed'])) {
     $words = array(
         "Hola",
         "Camino",
-        "Bebé",
+        "Bebe",
         "Reloj",
         "Ancheta"
     );
@@ -24,26 +25,62 @@ if (isset($_GET['seed'])) {
 }
 
 if (isset($_POST['play'])) {
-    header("Location: game.php?user=".urlencode($_GET['user'])."&seed=".rand(0,4));
+    header("Location: game.php?user=".urlencode($_GET['user']).
+                                "&lifes=5".
+                                "&seed=".rand(0,4));
     return;
 }
 
 if (isset($_POST['ch'])) {
+    checkLife($lifes, $_POST['ch'], $word);
     header("Location: game.php?user=".urlencode($_GET['user']).
+                                "&lifes=".$lifes.
                                 "&seed=".urlencode($_GET['seed']).
                                 "&ch=".$attempts.urlencode($_POST['ch']));
     return;
 }
 
 $user = $_GET['user'];
-$seed = $_GET['seed'];
 $display = array(
     "head" => "disabled",
     "body" => "disabled",
     "arms" => "disabled",
     "lleg" => "disabled",
-    "rleg" => "disabled"
+    "rleg" => "disabled",
+    "state" => "state",
+    "stateText" => ""
 );
+
+function changeDisplay(&$display, $lifes) {
+    global $word;
+    switch($lifes) {
+        case 0:
+            $display["stateText"]="¡Has perdido! La palabra era ".$word;
+            $display["state"]="lose";
+            $display["rleg"]="";
+        case 1:
+            $display["lleg"]="";
+        case 2:
+            $display["arms"]="";
+        case 3:
+            $display["body"]="";
+        case 4:
+            $display["head"]="";
+        case 5:
+            break;
+    }
+}
+
+function checkLife(&$lifes, $ch, $word) {
+    for ($i = 0; $i < strlen($word); $i++) {
+        $test_word = str_split($word)[$i];
+        if ($test_word == $ch) {
+            return;
+        }
+    }
+    $lifes--;
+    return;
+}
 
 function checkAttempt($attempts, $word) {
     $output = "";
@@ -63,18 +100,32 @@ function checkAttempt($attempts, $word) {
         } else {
             $output .= "_ ";
         }
-
     }
     return $output;
 }
 
+function checkVictory() {
+    global $word_in_page;
+    global $display;
+    if(strpos($word_in_page, "_") === FALSE) {
+        $display["state"] = "win";
+        $display["stateText"] = "¡Has ganado! Felicitaciones.";
+    } else {
+        $display["state"] = "state";
+        $display["stateText"] = "";
+    }
+}
+
+
 if(isset($_GET['ch'])) {
-    //header("Location: game.php?user=".urlencode($_GET['user'])."&seed=".rand(0,4));
     $word_in_page = checkAttempt($_GET['ch'], $word);
 }
 else {
     $word_in_page = checkAttempt("", $word);
 }
+
+checkVictory();
+changeDisplay($display, $lifes);
 
 ?>
 
@@ -114,6 +165,9 @@ else {
         </div>
 
         <div class="game-section">
+            <p id="<?=htmlentities($display["state"])?>">
+                <?=htmlentities($display["stateText"])?>
+            </p>
             <p id="word">
             <?=htmlentities($word_in_page)?>
             </p>

@@ -272,3 +272,13 @@ p#word {
     color: black;
     margin-bottom: 10rem;
 }
+
+#win {
+    color: green;
+    font-size: 2.5rem;
+}
+
+#lose {
+    color: red;
+    font-size: 2.5rem;
+}
