@@ -1,63 +1,83 @@
 <?php
 
-$playing = "disabled";
+//Checking username
+if ( !isset($_GET['user']) || strlen($_GET['user']) < 1) {
+    header("Location: index.php");
+    return;
+} else {
+    $user = $_GET['user'];
+}
+
 $word = "";
 $seed = "";
 $attempts = isset($_GET['ch'])? $_GET['ch']: "";
 $lifes = isset($_GET['lifes'])? $_GET['lifes']: -1;
 
-if ( !isset($_GET['user']) || strlen($_GET['user']) < 1) {
-    header("Location: index.php");
-    return;
-}
+$words = array(
+    "JAZZ", "LUCKY", "UNZIP", "SCRATCH",
+    "RHYTHM", "PHP HYPERTEXT PREPROCESSOR", "PYTHON", 
+    "JELLY", "HANGED", "HORSE", "CHAIR",
+    "BANJO", "INJURY"
+);
+$total_words = count($words);
 
-if (isset($_GET['seed'])) {
-    $seed = $_GET['seed'];
-    $playing = "";
-    $words = array(
-        "HOLA",
-        "CAMINO",
-        "BEBE",
-        "RELOJ",
-        "ANCHETA"
-    );
-    $word = $words[$_GET['seed']];
-}
-
-if (isset($_POST['play'])) {
-    header("Location: game.php?user=".urlencode($_GET['user']).
-                                "&lifes=5".
-                                "&seed=".rand(0,4));
-    return;
-}
-
-if (isset($_POST['ch'])) {
-    $upperch = strtoupper($_POST['ch']);
-    checkLife($lifes, $upperch, $word);
-    header("Location: game.php?user=".urlencode($_GET['user']).
-                                "&lifes=".$lifes.
-                                "&seed=".urlencode($_GET['seed']).
-                                "&ch=".$attempts.urlencode($upperch)
-    );
-    return;
-}
-
-$user = $_GET['user'];
-$display = array(
+$display = array( 
     "head" => "disabled",
     "body" => "disabled",
     "arms" => "disabled",
     "lleg" => "disabled",
     "rleg" => "disabled",
     "state" => "state",
-    "stateText" => ""
+    "stateText" => "",
+    "game" => "disabled"
 );
 
-function changeDisplay(&$display, $lifes) {
+//When Play button triggers
+if (isset($_POST['play'])) {
+    header("Location: game.php?user=".urlencode($user).
+                                "&lifes=5".
+                                "&seed=".rand(0, $total_words - 1));
+    return;
+}
+
+//For setting the word
+if (isset($_GET['seed'])) {
+    $seed = $_GET['seed'];
+    $display['game'] = "";
+    $word = $words[$seed];
+}
+
+//When user types a letter (checkLife() is used here)
+if (isset($_POST['ch'])) {
+    $upperch = strtoupper($_POST['ch']); // This converts a -> A, b -> B, and so on
+    checkLife($upperch, $word);
+    header("Location: game.php?user=".urlencode($user).
+                                "&lifes=".$lifes.
+                                "&seed=".urlencode($seed).
+                                "&ch=".$attempts.urlencode($upperch));
+    return;
+}
+
+if(isset($_GET['ch'])) {
+    $word_in_page = checkAttempt($_GET['ch'], $word);
+} else {
+    $word_in_page = checkAttempt("", $word);
+}
+// End of POST and GET checks
+
+/**
+ * function changeDisplay()
+ * 
+ * It changes the hangman display state
+ * according to lifes left.
+ */
+function changeDisplay() {
+    global $display;
     global $word;
+    global $lifes;
     switch($lifes) {
         case 0:
-            $display["stateText"]="¡Has perdido! La palabra era ".$word;
+            $display["stateText"]="¡You failed! Word was ".$word;
             $display["state"]="lose";
             $display["rleg"]="";
         case 1:
@@ -69,26 +89,48 @@ function changeDisplay(&$display, $lifes) {
         case 4:
             $display["head"]="";
         case 5:
+        default:
             break;
     }
 }
 
-function checkLife(&$lifes, $ch, $word) {
+/**
+ * function checkLife($ch, $word)
+ * 
+ * If the $ch character is not into word, the
+ * player loses one life.
+ */
+function checkLife($ch, $word) {
+    global $lifes;
     for ($i = 0; $i < strlen($word); $i++) {
         $test_word = str_split($word)[$i];
-        if ($test_word == $ch) {
-            return;
-        }
+        if ($test_word == $ch) return;
     }
     if ($lifes > 0) $lifes--;
     return;
 }
 
+/**
+ * function checkAttempt($attempts, $word)
+ * 
+ * It checks every attempt (in $attempts) 
+ * with secret word ($word) to create the
+ * output of discovered characters.
+ * 
+ * Example outputs:
+ * _ _ _ _ _ _ _ _
+ * _ _ A _ _
+ * _ E _ B E
+ */
 function checkAttempt($attempts, $word) {
     $output = "";
-    $finished = FALSE;
+    $finished = FALSE;  //Variable to avoid typing multiple times the underscore (_) in output
     for ($i = 0; $i < strlen($word); $i++) {
         $test_word = str_split($word)[$i];
+        if ($test_word == " ") {
+            $output .= "&nbsp; ";
+            continue;
+        }
         for($j = 0; $j < strlen($attempts); $j++) {
             $test_attempt = str_split($attempts)[$j];
             if ($test_attempt == $test_word) {
@@ -97,38 +139,33 @@ function checkAttempt($attempts, $word) {
                 break;
             }
         }
-        if ($finished) {
-            $finished = FALSE;
-        } else {
-            $output .= "_ ";
-        }
+        if ($finished) $finished = FALSE;
+        else $output .= "_ ";
     }
     return $output;
 }
 
+/**
+ * function checkVictory()
+ * 
+ * If $word_in_page does not have underscores,
+ * it means the player won.
+ */
 function checkVictory() {
     global $word_in_page;
     global $display;
     if(strpos($word_in_page, "_") === FALSE) {
         $display["state"] = "win";
-        $display["stateText"] = "¡Has ganado! Felicitaciones.";
+        $display["stateText"] = "¡You won! Congratulations.";
     } else {
         $display["state"] = "state";
         $display["stateText"] = "";
     }
 }
-
-
-if(isset($_GET['ch'])) {
-    $word_in_page = checkAttempt($_GET['ch'], $word);
-}
-else {
-    $word_in_page = checkAttempt("", $word);
-}
+//END functions declarations
 
 checkVictory();
-changeDisplay($display, $lifes);
-
+changeDisplay($lifes);
 ?>
 
 
@@ -158,7 +195,7 @@ changeDisplay($display, $lifes);
     </header>
     
     
-    <div class="game-grid <?=htmlentities($playing)?>">
+    <div class="game-grid <?=htmlentities($display['game'])?>">
         <div class= "hangman">
             <img id="hang" src="img/hangman/hang.svg" alt="hang">
             <img class="<?=htmlentities($display["head"])?>" id="head" src="img/hangman/head.svg" alt="head">
@@ -173,7 +210,7 @@ changeDisplay($display, $lifes);
                 <?=htmlentities($display["stateText"])?>
             </p>
             <p id="word">
-            <?=htmlentities($word_in_page)?>
+            <?=$word_in_page?>
             </p>
             <form class="hanged-input" method="POST">
                 <label class="input-underlined">

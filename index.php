@@ -3,17 +3,17 @@
 $salt = '*w_52$0%Hk';
 $stored_hash = '7a95b199144677cc04302a11c0e3132f84f8ef2b536c2043689a8fa3f6c750db';
 
-$failure = false;  // If we have no POST data
+$message = false;  // If we have no POST data
 
 // Check to see if we have some POST data, if we do process it
 if ( isset($_POST['user']) && isset($_POST['pass']) ) {
     $check = hash('sha256', $_POST['pass'].$salt);
-    if ( $check == $stored_hash ) {
-        // Redirect the browser to game.php
+    if ($check == $stored_hash) {   //Redirect to game.php
         header("Location: game.php?user=".urlencode($_POST['user']));
         return;
-    } else {
-        $failure = "Incorrect password";
+    }
+    else {
+        $message = "Incorrect password";
     }
 }
 ?>
@@ -32,7 +32,7 @@ if ( isset($_POST['user']) && isset($_POST['pass']) ) {
         <div class="title">
             <img src="img/title-logo.svg" alt="hanged title">
         </div>
-        <span class="input-helper"> <?=htmlentities($failure)?> </span>
+        <span class="input-helper"> <?=htmlentities($message)?> </span>
         <form method="POST">
             <label class="input-underlined">
                 <input id="user" name="user" type="text" required>
