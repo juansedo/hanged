@@ -24,11 +24,15 @@ For accessing to webpage, you need to start the web server.
 
 **In XAMPP:**
 Click on Start button in front of Apache module.
+
 ![XAMPP Start Server button](https://i.stack.imgur.com/z95JC.png)
 
 **In MAMP:**
 Click on Start Servers button.
+
 ![MAMP Start Server button](https://www.wa4e.com/images/mamp-win-02-launch.png)
+
+Now, you can visit [localhost/hanged-master/index.php](localhost/hanged-master/index.php) (if you changed the directory's name, you must use localhost/<directory name>/index.php). 
 
 ## License
 
