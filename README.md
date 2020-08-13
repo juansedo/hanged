@@ -34,6 +34,8 @@ Click on Start Servers button.
 
 Now, you can visit [localhost/hanged-master/index.php](localhost/hanged-master/index.php) (if you changed the directory's name, you must use localhost/<directory name>/index.php). 
 
+The password is `hanged123` for any username.
+
 ## License
 
 The content of this project itself is licensed under the [GNU General Public License](https://www.gnu.org/licenses/gpl-3.0.html).
@@ -45,3 +47,11 @@ Open Sans and Rowdies fonts have been used from [Google Fonts API](https://fonts
 Used images:
 - https://img.freepik.com/free-photo/white-watercolor-paper-texture-background_88281-3862.jpg?size=626&ext=jpg
 - https://tse2.mm.bing.net/th?id=OIP.S2CMWlKAjg1mExLEj0cOVQHaE7&pid=15.1
+
+Youtube video:
+- https://youtu.be/Aplh1bK9E3Y
+
+Songs in the video:
+- https://www.youtube.com/watch?v=G0v9fh8YkGg
+- https://www.youtube.com/watch?v=9S7aCuRtGzU
+- https://youtu.be/TvBLb9QsKAU
