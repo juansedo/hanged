@@ -3,12 +3,28 @@ particlesJS.load('particles-js', 'js/particles.json', function() {
     console.log('callback - particles.js config loaded');
 });
 
-anime({
-    targets: '.login-box .title>img',
-    easing: 'easeOutExpo', 
-    scale: [0,1],
-    duration:1000
+var tl1 = anime.timeline({
+    easing: 'easeOutExpo',
+    duration: 700
 });
+
+tl1
+.add({
+    targets: '.login-box .title>img',
+    scale: [0,1]
+})
+.add({
+    targets: 'form>*:nth-child(2)',
+    scale: [0,1]
+}, '-=600')
+.add({
+    targets: 'form>*:nth-child(3)',
+    scale: [0,1]
+}, '-=600')
+.add({
+    targets: 'form>*:nth-child(4)',
+    scale: [0,1]
+}, '-=600');
 
 
 var input_underlined = document.querySelectorAll(".input-underlined");
