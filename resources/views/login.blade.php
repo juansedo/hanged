@@ -24,7 +24,7 @@ if ( isset($_POST['user']) && isset($_POST['pass']) ) {
 @section('title', 'Hanged! - Login')
 
 @section('content')
-    <div id ="animation">
+    <div id ="particles-js">
     </div>
     <div class="login-box">
         <div class="title">

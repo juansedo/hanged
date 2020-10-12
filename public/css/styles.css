@@ -118,7 +118,7 @@ a {
     margin: 0 3rem;
 }
 
-#animation {
+#particles-js {
     position: absolute;
     z-index: -1;
     top: 0;
@@ -134,11 +134,11 @@ a {
 
 @keyframes rainbow {
     0% {
-        background-color: #9BC53D;
+        background-color: #F7941D;
     }
 
     20% {
-        background-color: #4CB944;
+        background-color: #b47426;
     }
 
     40% {

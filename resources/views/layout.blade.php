@@ -10,6 +10,7 @@
 <body>
     @yield('content')
     <script src="js/anime.min.js"></script>
+    <script src="js/particles.min.js"></script>
     <script src="js/animate.js"></script>
 </body>
 </html>
