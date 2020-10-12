@@ -16,6 +16,8 @@ use App\Http\Controllers\LoginController;
 */
 
 Route::view('/', 'login')->name('login');
-Route::view('/game', 'game')->name('game');
+Route::get('/game', function() {
+    return view('game');
+})->name('game');
 
 Route::post('/', [LoginController::class, 'login']);

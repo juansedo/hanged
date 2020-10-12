@@ -19,16 +19,13 @@ if ( isset($_POST['user']) && isset($_POST['pass']) ) {
 }*/
 ?>
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hanged! - Login</title>
-    <link rel="shortcut icon" href="img/favicon.ico" />
-    <link rel="stylesheet" href="css/styles.css" />
-</head>
-<body id="animation">
+@extends('layout')
+
+@section('title', 'Hanged! - Login')
+
+@section('content')
+    <div id ="animation">
+    </div>
     <div class="login-box">
         <div class="title">
             <img src="img/title-logo.svg" alt="hanged title">
@@ -47,5 +44,4 @@ if ( isset($_POST['user']) && isset($_POST['pass']) ) {
             <input class="button" type="submit" value="Log In">
         </form>
     </div>
-</body>
-</html>
+@endsection

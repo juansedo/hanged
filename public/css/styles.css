@@ -119,6 +119,12 @@ a {
 }
 
 #animation {
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
     animation-name: rainbow;
     animation-duration: 20s;
     animation-iteration-count: infinite;
@@ -129,32 +135,26 @@ a {
 @keyframes rainbow {
     0% {
         background-color: #9BC53D;
-        top: 0px;
     }
 
     20% {
         background-color: #4CB944;
-        top: 0px;
     }
 
     40% {
         background-color: #246EB9;
-        top: 50px;
     }
 
     60% {
         background-color: #5BC0EB;
-        top: 50px;
     }
 
     80% {
         background-color: #FDE74C;
-        top: 0px;
     }
 
     100% {
         background-color: #F5EE9E;
-        top: 0px;
     }
 }
 

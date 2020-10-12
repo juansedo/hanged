@@ -1,5 +1,5 @@
 <?php
-
+/*
 //Checking username
 if ( !isset($_GET['user']) || strlen($_GET['user']) < 1) {
     header("Location: index.php");
@@ -70,7 +70,7 @@ if(isset($_GET['ch'])) {
  * 
  * It changes the hangman display state
  * according to lifes left.
- */
+ *//*
 function changeDisplay() {
     global $display;
     global $word;
@@ -99,7 +99,7 @@ function changeDisplay() {
  * 
  * If the $ch character is not into word, the
  * player loses one life.
- */
+ *//*
 function checkLife($ch, $word) {
     global $lifes;
     for ($i = 0; $i < strlen($word); $i++) {
@@ -121,7 +121,7 @@ function checkLife($ch, $word) {
  * _ _ _ _ _ _ _ _
  * _ _ A _ _
  * _ E _ B E
- */
+ *//*
 function checkAttempt($attempts, $word) {
     $output = "";
     $finished = FALSE;  //Variable to avoid typing multiple times the underscore (_) in output
@@ -150,7 +150,7 @@ function checkAttempt($attempts, $word) {
  * 
  * If $word_in_page does not have underscores,
  * it means the player won.
- */
+ *//*
 function checkVictory() {
     global $word_in_page;
     global $display;
@@ -165,7 +165,7 @@ function checkVictory() {
 //END functions declarations
 
 checkVictory();
-changeDisplay($lifes);
+changeDisplay($lifes);*/
 ?>
 
 
