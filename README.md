@@ -1,61 +1,57 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
+# Hanged! - Web Application in PHP
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+## Introduction
 
-## About Laravel
+Using the knowledge learned in the course [Building Web Applications in PHP](https://www.coursera.org/learn/web-applications-php) from Coursera (with Dr. Charles Severance as teacher), I decided to make a small project: a **hangman game**.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+At below, I will explain the installation process, as well as how to use it.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## Installation
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+You must run these files in a PHP server. The fastest way is downloading [XAMPP](https://www.apachefriends.org/) (Windows) or [MAMP](https://www.mamp.info/) (Windows and Mac) to simulate a server on localhost.
 
-## Learning Laravel
+Go to your `htdocs` folder and then download this repository as a [zip file](https://github.com/juansedo/hanged/archive/master.zip) in that folder and unzip it. The `htdocs` folder is in different locations depending on your web server and OS:
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+**Windows XAMPP:** C:\xampp\htdocs
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+**Windows MAMP:** C:\MAMP\htdocs
 
-## Laravel Sponsors
+**MAC MAMP:** /Applications/MAMP/htdocs
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+## Usage
 
-### Premium Partners
+For accessing to webpage, you need to start the web server.
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[OP.GG](https://op.gg)**
+**In XAMPP:**
+Click on Start button in front of Apache module.
 
-## Contributing
+![XAMPP Start Server button](https://i.stack.imgur.com/z95JC.png)
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+**In MAMP:**
+Click on Start Servers button.
 
-## Code of Conduct
+![MAMP Start Server button](https://www.wa4e.com/images/mamp-win-02-launch.png)
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+Now, you can visit [localhost/hanged-master/index.php](localhost/hanged-master/index.php) (if you changed the directory's name, you must use localhost/<directory name>/index.php). 
 
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+The password is `hanged123` for any username.
 
 ## License
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+The content of this project itself is licensed under the [GNU General Public License](https://www.gnu.org/licenses/gpl-3.0.html).
+
+## Related links
+
+Open Sans and Rowdies fonts have been used from [Google Fonts API](https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400&family=Rowdies:wght@300;400&display=swap).
+
+Used images:
+- https://img.freepik.com/free-photo/white-watercolor-paper-texture-background_88281-3862.jpg?size=626&ext=jpg
+- https://tse2.mm.bing.net/th?id=OIP.S2CMWlKAjg1mExLEj0cOVQHaE7&pid=15.1
+
+Youtube video:
+- https://youtu.be/Aplh1bK9E3Y
+
+Songs in the video:
+- https://www.youtube.com/watch?v=G0v9fh8YkGg
+- https://www.youtube.com/watch?v=9S7aCuRtGzU
+- https://youtu.be/TvBLb9QsKAU
