@@ -15,7 +15,10 @@ use App\Http\Controllers\LoginController;
 |
 */
 
-Route::view('/', 'login')->name('login');
+Route::get('/', function() {
+    return view('login');
+})->name('login');
+
 Route::get('/game', function() {
     return view('game');
 })->name('game');

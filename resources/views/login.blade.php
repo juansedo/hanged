@@ -30,16 +30,24 @@ if ( isset($_POST['user']) && isset($_POST['pass']) ) {
         <div class="title">
             <img src="img/title-logo.svg" alt="hanged title">
         </div>
-        <span class="input-helper"> Hola </span>
+        <span class="input-invalid">
+            {!! $errors->first('no-auth','This user is not registered') !!}
+        </span>
         <form method="POST">
         @csrf
             <label class="input-underlined">
-                <input id="user" name="user" type="text" value="{{ old('user') }}" required>
+                <input id="user" name="user" type="text" value="{{ old('user') }}">
                 <span class="input-placeholder">Username</span>
+                <span class="input-helper">
+                    {!! $errors->first('user','Username field required') !!}
+                </span>
             </label>
             <label class="input-underlined">
-                <input id="pass" name="pass" type="password" value="{{ old('user') }}" required>
+                <input id="pass" name="pass" type="password" value="{{ old('pass') }}">
                 <span class="input-placeholder">Password</span>
+                <span class="input-helper">
+                    {!! $errors->first('pass','Password field required') !!}
+                </span>
             </label>
             <input class="button" type="submit" value="Log In">
         </form>

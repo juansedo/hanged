@@ -18,8 +18,7 @@ class LoginController extends Controller
             // Success
             return redirect('/game');
         } else {
-            // Go back on error (or do what you want)
-            return redirect('/');
+            return redirect('/')->withErrors(['no-auth' => 'User is not registered']);
         }
 
     }

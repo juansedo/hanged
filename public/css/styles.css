@@ -90,6 +90,7 @@ a {
     background: none;
     border: none;
     border-bottom: 0.3rem solid rgb(247,148,29);
+    color: rgb(247,148,29);
     width: 100%;
     font-size: 1.7rem;
     padding: 3rem 1rem 1.25rem 1rem;
@@ -98,20 +99,33 @@ a {
 .input-underlined>.input-placeholder {
     position: absolute;
     color: rgb(247,148,29);
-    top: 2.9rem;
+    top: 2.6rem;
     left: 1rem;
     font-size: 1.9rem;
     font-weight: 600;
     transition: all 200ms;
 }
 
-.input-underlined>input:focus+.input-placeholder,
-.input-underlined>input:valid+.input-placeholder {
+.input-underlined>.input-placeholder.filled {
+    position: absolute;
+    color: rgb(247,148,29);
     top: 0;
+    left: 1rem;
     font-size: 1.3rem;
+    font-weight: 600;
+    transition: all 200ms;
 }
 
 .input-helper {
+    position: absolute;
+    color: red;
+    font-size: 1.6rem;
+    font-weight: 400;
+    top: 0;
+    right: 0;
+}
+
+.input-invalid {
     color: red;
     font-size: 1.6rem;
     font-weight: 400;
