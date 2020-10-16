@@ -17,7 +17,7 @@ class LoginController extends Controller
         ]);
         if (request('pass') == "1") {//Auth::attempt(['email' => $email, 'password' => $password])) {
             // Success
-            return redirect()->route('game')->with(['user' => request('user')]);
+            return redirect()->route('game', ['user' => request('user')]);
         } else {
             return redirect('/')->withErrors(['no-auth' => 'User is not registered']);
         }

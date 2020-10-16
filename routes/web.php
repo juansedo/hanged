@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\LoginController;
-
+use App\Http\Controllers\GameController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -19,8 +19,6 @@ Route::get('/', function() {
     return view('login');
 })->name('login');
 
-Route::get('/game', function() {
-    return view('game');
-})->name('game');
+Route::get('/game', [GameController::class, '__invoke'])->name('game');
 
 Route::post('/', [LoginController::class, 'login']);

@@ -176,10 +176,10 @@ changeDisplay($lifes);*/
 <!--Generates an id via GET, that allows to play an specific word (like a seed)-->    
     <header>
         <h2 class="title">
-            Hello, <?= htmlentities($user) ?>. Are you ready?
+            Hello, {{$user}}. Are you ready?
         </h2>
         <h2 id="logout">
-            <a href="index.php">Logout</a>
+            <a href="{{ route('login') }}">Logout</a>
         </h2>
         <div class="clear"></div>
         
@@ -189,22 +189,22 @@ changeDisplay($lifes);*/
     </header>
     
     
-    <div class="game-grid <?=htmlentities($display['game'])?>">
+    <div class="game-grid {{$display['game']}}">
         <div class= "hangman">
             <img id="hang" src="img/hangman/hang.svg" alt="hang">
-            <img class="<?=htmlentities($display["head"])?>" id="head" src="img/hangman/head.svg" alt="head">
-            <img class="<?=htmlentities($display["body"])?>" id="body" src="img/hangman/body.svg" alt="body">
-            <img class="<?=htmlentities($display["arms"])?>" id="arms" src="img/hangman/arms.svg" alt="arms">
-            <img class="<?=htmlentities($display["lleg"])?>" id="lleg" src="img/hangman/lleg.svg" alt="lleg">
-            <img class="<?=htmlentities($display["rleg"])?>" id="rleg" src="img/hangman/rleg.svg" alt="rleg">
+            <img class="{{$display["head"]}}" id="head" src="img/hangman/head.svg" alt="head">
+            <img class="{{$display["body"]}}" id="body" src="img/hangman/body.svg" alt="body">
+            <img class="{{$display["arms"]}}" id="arms" src="img/hangman/arms.svg" alt="arms">
+            <img class="{{$display["lleg"]}}" id="lleg" src="img/hangman/lleg.svg" alt="lleg">
+            <img class="{{$display["rleg"]}}" id="rleg" src="img/hangman/rleg.svg" alt="rleg">
         </div>
 
         <div class="game-section">
-            <p id="<?=htmlentities($display["state"])?>">
-                <?=htmlentities($display["stateText"])?>
+            <p id="{{$display["state"]}}">
+                {{$display["stateText"]}}
             </p>
             <p id="word">
-            <?=$word_in_page?>
+            {{$word_in_page}}
             </p>
             <form class="hanged-input" method="POST">
                 <label class="input-underlined">
