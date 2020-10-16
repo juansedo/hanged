@@ -19,6 +19,8 @@ Route::get('/', function() {
     return view('login');
 })->name('login');
 
-Route::get('/game', [GameController::class, '__invoke'])->name('game');
+Route::get('/game', GameController::class)->name('game');
 
 Route::post('/', [LoginController::class, 'login']);
+
+Route::view('/congratulations', 'congratulations');
