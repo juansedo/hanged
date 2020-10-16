@@ -168,17 +168,11 @@ checkVictory();
 changeDisplay($lifes);*/
 ?>
 
+@extends('layout')
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hanged! - Game</title>
-    <link rel="shortcut icon" href="img/favicon.ico" />
-    <link rel="stylesheet" href="css/styles.css" />
-</head>
-<body>
+@section('title', 'Hanged! - Game')
+
+@section('content')
 <!--Generates an id via GET, that allows to play an specific word (like a seed)-->    
     <header>
         <h2 class="title">
@@ -221,6 +215,4 @@ changeDisplay($lifes);*/
             </form>
         </div>
     </div>
-
-</body>
-</html>
+@endsection

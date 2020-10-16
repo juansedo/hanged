@@ -5,7 +5,7 @@ particlesJS.load('particles-js', 'js/particles.json', function() {
 
 var tl1 = anime.timeline({
     easing: 'easeOutExpo',
-    duration: 700
+    duration: 400
 });
 
 tl1
@@ -14,17 +14,17 @@ tl1
     scale: [0,1]
 })
 .add({
-    targets: 'form>*:nth-child(2)',
+    targets: 'form>#input-user',
     scale: [0,1]
-}, '-=600')
+}, '-=400')
 .add({
-    targets: 'form>*:nth-child(3)',
+    targets: 'form>#input-password',
     scale: [0,1]
-}, '-=600')
+}, '-=400')
 .add({
-    targets: 'form>*:nth-child(4)',
+    targets: 'form>input[type="submit"]',
     scale: [0,1]
-}, '-=600');
+}, '-=400');
 
 
 var input_underlined = document.querySelectorAll(".input-underlined");
