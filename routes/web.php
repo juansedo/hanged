@@ -23,4 +23,5 @@ Route::get('/game', GameController::class)->name('game');
 
 Route::post('/', [LoginController::class, 'login']);
 
-Route::view('/congratulations', 'congratulations');
+Route::view('/congratulations', 'game.congratulations');
+Route::view('/failed', 'game.failed');

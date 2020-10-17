@@ -172,7 +172,8 @@ a {
     }
 }
 
-#particles-js-congratulations {
+#particles-js-congratulations,
+#particles-js-failed {
     position: absolute;
     z-index: -1;
     top: 0;
@@ -319,6 +320,10 @@ p#word {
     font-size: 2.5rem;
 }
 
+.centered {
+    text-align: center;
+}
+
 .simple-box {
     position: fixed;
     top: 50%;
@@ -337,6 +342,14 @@ p#word {
     text-align: center;
     font-size: 5rem;
     color: green;
+    font-weight: 700;
+    margin-top:0;
+}
+
+.simple-box #lose {
+    text-align: center;
+    font-size: 5rem;
+    color: #781717;
     font-weight: 700;
     margin-top:0;
 }
