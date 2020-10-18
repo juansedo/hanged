@@ -179,9 +179,16 @@ changeDisplay($lifes);*/
             Hello, {{$user}}. Are you ready?
         </h2>
         <h2 id="logout">
-            <a href="{{ route('login') }}">Logout</a>
+            <a href="#"
+                onclick="event.preventDefault();
+                document.getElementById('logout-form').submit();">
+            Logout
+            </a>
         </h2>
         <div class="clear"></div>
+        <form id="logout-form" method="POST" action="{{ route('logout') }}">
+            @csrf
+        </form>
         
         <form method="POST">
             <input class="button" type="submit" name="play" value="Play">
