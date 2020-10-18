@@ -29,5 +29,3 @@ Route::get('/failed', [GameController::class, 'fail'])
 ->middleware('auth');
 
 Auth::routes();
-
-Route::view('/game/reg','auth.reg');

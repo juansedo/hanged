@@ -381,3 +381,44 @@ p#word {
 .clear-both {
     clear: both;
 }
+
+.nav-login {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.nav-login * {
+    color: inherit;
+}
+
+.nav-login>* {
+    color: #df5119;
+    background-color: white;
+    border-radius: 1rem;
+    border: #df5119 1rem;
+    width: 20rem;
+    padding: 1rem 2rem;
+    text-align: center;
+    -webkit-box-shadow: 0px 0px 20px 3px rgba(0,0,0,0.1);
+    -moz-box-shadow: 0px 0px 20px 3px rgba(0,0,0,0.1);
+    box-shadow: 0px 0px 20px 3px rgba(0,0,0,0.1);
+}
+
+.nav-login>*.active {
+    color: white;
+    background-color: #df5119;
+    border: white 1rem;
+}
+
+.nav-login #login-btn {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+}
+
+.nav-login #register-btn {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+}
