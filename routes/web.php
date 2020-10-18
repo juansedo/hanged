@@ -16,15 +16,9 @@ use App\Http\Controllers\HomeController;
 |
 */
 
-/*Route::get('/', function() {
-    return view('login');
-})->name('login');*/
-
 Route::get('/', GameController::class)->name('game');
 
-//Route::post('/', [LoginController::class, 'login']);
-
-Route::view('/congratulations', 'game.congratulations');
-Route::view('/failed', 'game.failed');
+Route::get('/congratulations', [GameController::class, 'win'])->name('congratulations');
+Route::get('/failed', [GameController::class, 'fail'])->name('failed');
 
 Auth::routes();

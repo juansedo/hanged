@@ -106,4 +106,12 @@ class GameController extends Controller
     {
         //
     }
+
+    public function win() {
+        return view('game.congratulations');
+    }
+
+    public function fail() {
+        return view('game.failed');
+    }
 }
