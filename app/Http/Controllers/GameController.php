@@ -28,7 +28,7 @@ class GameController extends Controller
             "game" => "disabled"
         );
 
-        return view('game', compact('user', 'display', 'word_in_page'));
+        return view('game.show', compact('user', 'display', 'word_in_page'));
     }
     
     /**
