@@ -14,10 +14,10 @@ class GameController extends Controller
      */
     
     public function __invoke(Request $request) {
-        $user = request('user');
+        $user = auth()->user()->name;
         $word_in_page = "";
 
-        $display = array( 
+        $display = array(
             "head" => "disabled",
             "body" => "disabled",
             "arms" => "disabled",

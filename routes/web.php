@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\GameController;
+use App\Http\Controllers\HomeController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -15,13 +16,15 @@ use App\Http\Controllers\GameController;
 |
 */
 
-Route::get('/', function() {
+/*Route::get('/', function() {
     return view('login');
-})->name('login');
+})->name('login');*/
 
-Route::get('/game', GameController::class)->name('game');
+Route::get('/', GameController::class)->name('game');
 
-Route::post('/', [LoginController::class, 'login']);
+//Route::post('/', [LoginController::class, 'login']);
 
 Route::view('/congratulations', 'game.congratulations');
 Route::view('/failed', 'game.failed');
+
+Auth::routes();

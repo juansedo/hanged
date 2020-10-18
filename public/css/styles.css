@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400&family=Rowdies:wght@300;400&display=swap');
 
+:root {
+    --color-orange: #F7941D;
+}
+
 /**HTML**/
 
 html {
@@ -352,4 +356,28 @@ p#word {
     color: #781717;
     font-weight: 700;
     margin-top:0;
+}
+
+#check {
+    font-size: 1.3rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    float: left;
+    margin-bottom: 2rem;
+    color: var(--color-orange);
+}
+
+#forgot {
+    font-size: 1.3rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    float: right;
+    margin-bottom: 2rem;
+    color: var(--color-orange);
+}
+
+.clear-both {
+    clear: both;
 }
