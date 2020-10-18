@@ -16,9 +16,16 @@ use App\Http\Controllers\HomeController;
 |
 */
 
-Route::get('/', GameController::class)->name('game');
+Route::get('/', GameController::class)
+->name('game')
+->middleware('auth');
 
-Route::get('/congratulations', [GameController::class, 'win'])->name('congratulations');
-Route::get('/failed', [GameController::class, 'fail'])->name('failed');
+Route::get('/congratulations', [GameController::class, 'win'])
+->name('congratulations')
+->middleware('auth');
+
+Route::get('/failed', [GameController::class, 'fail'])
+->name('failed')
+->middleware('auth');
 
 Auth::routes();
