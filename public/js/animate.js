@@ -11,6 +11,7 @@ particlesJS.load('particles-js-failed', 'js/particles-failed.json', function() {
     console.log('callback - particles.js config loaded');
 });
 
+/*
 var tl1 = anime.timeline({
     easing: 'easeOutExpo',
     duration: 400
@@ -33,6 +34,16 @@ tl1
     targets: 'form>input[type="submit"]',
     scale: [0,1]
 }, '-=400');
+*/
+
+anime({
+    targets: '.login-box',
+    easing: 'easeInOutQuad',
+    duration: 1000,
+    translateX: '-50%',
+    translateY: '-50%',
+    scale: [0,1]
+});
 
 
 var input_underlined = document.querySelectorAll(".input-underlined");
