@@ -75,7 +75,7 @@ class GameController extends Controller
 
         changeDisplay();
 
-        return view('game.show', compact('word_in_page'));//session()->all();
+        return view('game.show', compact('word_in_page'));
     }
 
     public function win() {

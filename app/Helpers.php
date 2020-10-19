@@ -1,29 +1,55 @@
 <?php
 
+/**
+ * function setActive($routename)
+ * 
+ * This function returns 'active' class when
+ * $routename is actual route.
+ */
 function setActive($routename) {
     return request()->routeIs($routename) ? 'active' : '';
 }
 
+/**
+ * function valueIfSessionHas($var, $otherwise = "")
+ * 
+ * This function returns session()->get($var)
+ * if exists. Otherwise, returns the $otherwise value.
+ */
 function valueIfSessionHas($var, $otherwise = "") {
     return session()->has($var) ? session()->get($var) : $otherwise;
 }
 
+/**
+ * function checkAttempt($word, $ch)
+ * 
+ * This function returns true if any
+ * $word's character is equal to $ch.
+ */
 function checkAttempt($word, $ch) {
-    foreach(str_split($word) as $c) {
-        if ($c == $ch) return true;
-    }
-    return false;
+    return !(strpos($word, $ch) === FALSE);
+}
+
+/**
+ * function checkVictory()
+ * 
+ * If $word_in_page does not have underscores,
+ * it means the player won.
+ *
+ */
+function checkVictory($word_in_page) {
+    return strpos($word_in_page, "_") === FALSE;
 }
 
 /**
  * function fillDisplayedWord($magic_word, $attempts)
  * 
  * It checks every attempt (in $attempts) 
- * with secret word ($word) to create the
+ * with $magic_word to create the
  * output of discovered characters.
  * 
  * Example outputs:
- * _ _ _ _ _ _ _ _
+ * _ _ _ _  _ _ _ _
  * _ _ A _ _
  * _ E _ B E
  */
@@ -50,16 +76,7 @@ function fillDisplayedWord($magic_word = "", $attempts = array()) {
     return $output;
 }
 
-/**
- * function checkVictory()
- * 
- * If $word_in_page does not have underscores,
- * it means the player won.
 
- */
-function checkVictory($word_in_page) {
-    return strpos($word_in_page, "_") === FALSE;
-}
 
 /**
  * function changeDisplay()
