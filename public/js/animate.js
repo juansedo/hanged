@@ -20,6 +20,46 @@ anime({
     scale: [0,1]
 });
 
+anime({
+    targets: '.hangman #head',
+    easing: 'easeInOutQuad',
+    duration: 300,
+    scale: [0,1]
+});
+
+anime({
+    targets: '.hangman #body',
+    easing: 'easeInOutQuad',
+    duration: 400,
+    scale: [0,1],
+    rotate: '1turn'
+});
+
+anime({
+    targets: '.hangman #arms',
+    easing: 'easeInOutQuad',
+    duration: 400,
+    translateX: [-500,0],
+    rotate: '1turn'
+});
+
+anime({
+    targets: '.hangman #lleg',
+    easing: 'easeOutElastic(1, .8)',
+    duration: 400,
+    scale: [2,1],
+    translateY: [5000,0],
+    rotate: '1turn'
+});
+
+anime({
+    targets: '.hangman #rleg',
+    easing: 'easeOutElastic(1, .8)',
+    duration: 400,
+    scale: [2,1],
+    translateY: [5000,0],
+    rotate: '1turn'
+});
 
 var arr_input_underlined = document.querySelectorAll(".input-underlined");
 
