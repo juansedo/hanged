@@ -16,10 +16,6 @@ use App\Http\Controllers\HomeController;
 |
 */
 
-Route::get('/', GameController::class)
-->name('game')
-->middleware('auth');
-
 Route::get('/congratulations', [GameController::class, 'win'])
 ->name('congratulations')
 ->middleware('auth');
@@ -29,3 +25,11 @@ Route::get('/failed', [GameController::class, 'fail'])
 ->middleware('auth');
 
 Auth::routes();
+
+Route::get('/', GameController::class)
+->name('game')
+->middleware('auth');
+
+Route::post('/{seed?}', [GameController::class, 'play'])
+->name('game.play')
+->middleware('auth');

@@ -28,6 +28,11 @@ class GameController extends Controller
             "game" => "disabled"
         );
 
+        if (request()->has('play')) {
+            $seed = "123";
+            return view('game.show', ['seed' => $seed]);
+        }
+
         return view('game.show', compact('user', 'display', 'word_in_page'));
     }
     
@@ -105,6 +110,11 @@ class GameController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function play($seed)
+    {
+        return "Semilla: ".$seed;
     }
 
     public function win() {

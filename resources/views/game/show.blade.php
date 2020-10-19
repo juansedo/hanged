@@ -1,13 +1,5 @@
 <?php
 /*
-//Checking username
-if ( !isset($_GET['user']) || strlen($_GET['user']) < 1) {
-    header("Location: index.php");
-    return;
-} else {
-    $user = $_GET['user'];
-}
-
 $word = "";
 $seed = "";
 $attempts = isset($_GET['ch'])? $_GET['ch']: "";
@@ -20,17 +12,6 @@ $words = array(
     "BANJO", "INJURY"
 );
 $total_words = count($words);
-
-$display = array( 
-    "head" => "disabled",
-    "body" => "disabled",
-    "arms" => "disabled",
-    "lleg" => "disabled",
-    "rleg" => "disabled",
-    "state" => "state",
-    "stateText" => "",
-    "game" => "disabled"
-);
 
 //When Play button triggers
 if (isset($_POST['play'])) {
@@ -185,12 +166,13 @@ changeDisplay($lifes);*/
             Logout
             </a>
         </h2>
-        <div class="clear"></div>
+        <div class="clear-both"></div>
         <form id="logout-form" method="POST" action="{{ route('logout') }}">
             @csrf
         </form>
         
-        <form method="POST">
+        <form method="POST" action="{{ route('game.play', 25) }}">
+            @csrf
             <input class="button" type="submit" name="play" value="Play">
         </form>
     </header>

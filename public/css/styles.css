@@ -239,10 +239,6 @@ header #logout {
     float: right;
 }
 
-.clear {
-    clear: both;
-}
-
 .disabled {
     display: none;
     visibility: hidden;
