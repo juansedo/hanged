@@ -26,12 +26,6 @@
                 Remember me
             </label>
         </div>
-
-        @if (Route::has('password.request'))
-            <a id="forgot" href="{{ route('password.request') }}">
-                Forgot your password?
-            </a>
-        @endif
         
         <input class="button clear-both" type="submit" value="Log In">
     </form>

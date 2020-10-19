@@ -21,9 +21,9 @@ anime({
 });
 
 
-var input_underlined = document.querySelectorAll(".input-underlined");
+var arr_input_underlined = document.querySelectorAll(".input-underlined");
 
-input_underlined.forEach(function(item) {
+arr_input_underlined.forEach(function(item) {
     if (item.querySelector("input").value.length != 0) {
         item.querySelector(".input-placeholder").classList.add("filled");
     }
