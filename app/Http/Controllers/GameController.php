@@ -15,21 +15,11 @@ class GameController extends Controller
      */
     
     public function __invoke(Request $request) {
-        $user = auth()->user()->name;
         $word_in_page = "";
 
-        $display = array(
-            "head" => "disabled",
-            "body" => "disabled",
-            "arms" => "disabled",
-            "lleg" => "disabled",
-            "rleg" => "disabled",
-            "state" => "state",
-            "stateText" => "",
-            "game" => "disabled"
-        );
+        session()->forget('display.game');
 
-        return view('game.show', compact('user', 'display', 'word_in_page'));
+        return view('game.show', compact('word_in_page'));
     }
     
     /**
@@ -110,22 +100,12 @@ class GameController extends Controller
 
     public function play($seed)
     {
-        $user = auth()->user()->name;
         $word_in_page = "";
-        $display = array(
-            "head" => "disabled",
-            "body" => "disabled",
-            "arms" => "disabled",
-            "lleg" => "disabled",
-            "rleg" => "disabled",
-            "state" => "state",
-            "stateText" => "",
-            "game" => "disabled"
-        );
+        $ch = "";
 
         if(request()->has('play')) {
             // Define used word
-            session()->put('word', Words::find($seed)->name);
+            session()->put('word', strtoupper(Words::find($seed)->name));
             session()->put('lifes', 5);
             session()->forget('state');
 
@@ -141,9 +121,30 @@ class GameController extends Controller
             session()->forget('used-chars');
         }
 
+        // If user types a letter
+        if(request()->has('ch')) {
+            $word = strtoupper(session()->get('word'));
+            $ch = strtoupper(request()->get('ch'));
+            session()->push('used-chars', e($ch));
+            
+            if(!checkAttempt($word, $ch)) {
+                $lifes = session()->get('lifes');
+                if($lifes <= 1) {
+                    return view('game.failed');
+                }
+                session()->put('lifes', $lifes-1);
+            }
+        }
 
 
-        return view('game.show', compact('user', 'display', 'word_in_page'));//session()->all();
+        // Define word in page template
+        if (session()->has('used-chars')) {
+            $word_in_page = fillDisplayedWord(session()->get('word'), session()->get('used-chars'));
+        } else {
+            $word_in_page = fillDisplayedWord(session()->get('word'));
+        }
+
+        return view('game.show', compact('word_in_page'));//session()->all();
     }
 
     public function win() {

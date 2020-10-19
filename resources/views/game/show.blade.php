@@ -123,6 +123,7 @@ function checkAttempt($attempts, $word) {
  * 
  * If $word_in_page does not have underscores,
  * it means the player won.
+
  *//*
 function checkVictory() {
     global $word_in_page;
@@ -149,7 +150,7 @@ changeDisplay($lifes);*/
 <!--Generates an id via GET, that allows to play an specific word (like a seed)-->    
     <header>
         <h2 class="title">
-            Hello, {{$user}}. Are you ready?
+            Hello, {{auth()->user()->name}}, {{valueIfsessionHas('lifes', '')}}. Are you ready?
         </h2>
         <h2 id="logout">
             <a href="#"
@@ -185,6 +186,7 @@ changeDisplay($lifes);*/
             {{$word_in_page}}
             </p>
             <form class="hanged-input" method="POST">
+                @csrf
                 <label class="input-underlined">
                     <input id="ch" name="ch" type="text" maxlength="1" required>
                     <span class="input-placeholder">Type a letter</span>
