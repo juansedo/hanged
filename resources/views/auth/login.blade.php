@@ -8,20 +8,16 @@
         <div id="input-user" class="input-underlined">
             <input id="email" type="email" name="email" value="{{ old('email') }}" autocomplete="email" autofocus>
             <span class="input-placeholder">Email</span>
-            @error('email')
-                <span class="input-invalid">
-                    {!! $errors->first('no-auth','This user is not registered') !!}
-                </span>
-            @enderror
+            <span class="input-helper">
+                {!! $errors->first('email','Email field required') !!}
+            </span>
         </div>
         <div id="input-password" class="input-underlined">
             <input id="password" type="password" name="password" autocomplete="current-password">
             <span class="input-placeholder">Password</span>
-            @error('password')
-                <span class="input-helper">
-                    {!! $errors->first('pass','Password field required') !!}
-                </span>
-            @enderror
+            <span class="input-helper">
+                {!! $errors->first('password','Password field required') !!}
+            </span>
         </div>
 
         <div id="check">

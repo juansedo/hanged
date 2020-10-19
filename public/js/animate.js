@@ -11,31 +11,6 @@ particlesJS.load('particles-js-failed', 'js/particles-failed.json', function() {
     console.log('callback - particles.js config loaded');
 });
 
-/*
-var tl1 = anime.timeline({
-    easing: 'easeOutExpo',
-    duration: 400
-});
-
-tl1
-.add({
-    targets: '.login-box .title>img',
-    scale: [0,1]
-})
-.add({
-    targets: 'form>#input-user',
-    scale: [0,1]
-}, '-=400')
-.add({
-    targets: 'form>#input-password',
-    scale: [0,1]
-}, '-=400')
-.add({
-    targets: 'form>input[type="submit"]',
-    scale: [0,1]
-}, '-=400');
-*/
-
 anime({
     targets: '.login-box',
     easing: 'easeInOutQuad',

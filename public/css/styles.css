@@ -413,12 +413,12 @@ p#word {
 
 .nav-login #login-btn {
     position: absolute;
-    left: 0;
-    bottom: 0;
+    left: 1rem;
+    bottom: 1rem;
 }
 
 .nav-login #register-btn {
     position: absolute;
-    right: 0;
-    bottom: 0;
+    right: 1rem;
+    bottom: 1rem;
 }
