@@ -6,7 +6,7 @@
 <!--Generates an id via GET, that allows to play an specific word (like a seed)-->    
     <header>
         <h2 class="title">
-            Hello, {{auth()->user()->name}}, {{valueIfsessionHas('lifes', '')}}. Are you ready?
+            Hello, {{auth()->user()->name}}. Are you ready?
         </h2>
         <h2 id="logout">
             <a href="#"
@@ -20,7 +20,7 @@
             @csrf
         </form>
         
-        <form method="POST" action="{{ route('game.play', 2) }}">
+        <form method="POST" action="{{ route('game.play', rand(1,12)) }}">
             @csrf
             <input class="button" type="submit" name="play" value="Play">
         </form>

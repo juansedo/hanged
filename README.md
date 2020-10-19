@@ -8,6 +8,14 @@ At below, I will explain the installation process, as well as how to use it.
 
 ## Installation
 
+Commands:
+```
+mv .env.example .env
+composer install
+php artisan key:generate
+php artisan migrate --seed
+php artisan serve
+```
 You must run these files in a PHP server. The fastest way is downloading [XAMPP](https://www.apachefriends.org/) (Windows) or [MAMP](https://www.mamp.info/) (Windows and Mac) to simulate a server on localhost.
 
 Go to your `htdocs` folder and then download this repository as a [zip file](https://github.com/juansedo/hanged/archive/master.zip) in that folder and unzip it. The `htdocs` folder is in different locations depending on your web server and OS:
