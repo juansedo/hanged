@@ -26,7 +26,7 @@ Route::get('/failed', [GameController::class, 'fail'])
 
 Auth::routes();
 
-Route::get('/', GameController::class)
+Route::get('/{seed?}', GameController::class)
 ->name('game')
 ->middleware('auth');
 

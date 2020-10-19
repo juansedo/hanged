@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Words;
 
 class GameController extends Controller
 {
@@ -114,7 +115,7 @@ class GameController extends Controller
 
     public function play($seed)
     {
-        return "Semilla: ".$seed;
+        return Words::find($seed);
     }
 
     public function win() {

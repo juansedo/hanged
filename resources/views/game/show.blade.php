@@ -171,7 +171,7 @@ changeDisplay($lifes);*/
             @csrf
         </form>
         
-        <form method="POST" action="{{ route('game.play', 25) }}">
+        <form method="POST" action="{{ route('game.play', 2) }}">
             @csrf
             <input class="button" type="submit" name="play" value="Play">
         </form>
