@@ -29,11 +29,6 @@ class GameController extends Controller
             "game" => "disabled"
         );
 
-        if (request()->has('play')) {
-            $seed = "123";
-            return view('game.show', ['seed' => $seed]);
-        }
-
         return view('game.show', compact('user', 'display', 'word_in_page'));
     }
     
@@ -115,7 +110,40 @@ class GameController extends Controller
 
     public function play($seed)
     {
-        return Words::find($seed);
+        $user = auth()->user()->name;
+        $word_in_page = "";
+        $display = array(
+            "head" => "disabled",
+            "body" => "disabled",
+            "arms" => "disabled",
+            "lleg" => "disabled",
+            "rleg" => "disabled",
+            "state" => "state",
+            "stateText" => "",
+            "game" => "disabled"
+        );
+
+        if(request()->has('play')) {
+            // Define used word
+            session()->put('word', Words::find($seed)->name);
+            session()->put('lifes', 5);
+            session()->forget('state');
+
+            // Display
+            //session()->put('display.head', 'disabled');
+            //session()->put('display.body', 'disabled');
+            //session()->put('display.arms', 'disabled');
+            //session()->put('display.lleg', 'disabled');
+            //session()->put('display.rleg', 'disabled');
+            session()->put('display.game',  '');
+
+            // Used characters
+            session()->forget('used-chars');
+        }
+
+
+
+        return view('game.show', compact('user', 'display', 'word_in_page'));//session()->all();
     }
 
     public function win() {

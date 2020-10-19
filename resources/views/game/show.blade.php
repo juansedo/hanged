@@ -5,14 +5,6 @@ $seed = "";
 $attempts = isset($_GET['ch'])? $_GET['ch']: "";
 $lifes = isset($_GET['lifes'])? $_GET['lifes']: -1;
 
-$words = array(
-    "JAZZ", "LUCKY", "UNZIP", "SCRATCH",
-    "RHYTHM", "PHP HYPERTEXT PREPROCESSOR", "PYTHON", 
-    "JELLY", "HANGED", "HORSE", "CHAIR",
-    "BANJO", "INJURY"
-);
-$total_words = count($words);
-
 //When Play button triggers
 if (isset($_POST['play'])) {
     header("Location: game.php?user=".urlencode($user).
@@ -178,20 +170,17 @@ changeDisplay($lifes);*/
     </header>
     
     
-    <div class="game-grid {{$display['game']}}">
+    <div class="game-grid {{valueIfsessionHas('display.game', "disabled")}}">
         <div class= "hangman">
             <img id="hang" src="img/hangman/hang.svg" alt="hang">
-            <img class="{{$display["head"]}}" id="head" src="img/hangman/head.svg" alt="head">
-            <img class="{{$display["body"]}}" id="body" src="img/hangman/body.svg" alt="body">
-            <img class="{{$display["arms"]}}" id="arms" src="img/hangman/arms.svg" alt="arms">
-            <img class="{{$display["lleg"]}}" id="lleg" src="img/hangman/lleg.svg" alt="lleg">
-            <img class="{{$display["rleg"]}}" id="rleg" src="img/hangman/rleg.svg" alt="rleg">
+            <img class="{{valueIfsessionHas('display.head', "disabled")}}" id="head" src="img/hangman/head.svg" alt="head">
+            <img class="{{valueIfsessionHas('display.body', "disabled")}}" id="body" src="img/hangman/body.svg" alt="body">
+            <img class="{{valueIfsessionHas('display.arms', "disabled")}}" id="arms" src="img/hangman/arms.svg" alt="arms">
+            <img class="{{valueIfsessionHas('display.lleg', "disabled")}} id="lleg" src="img/hangman/lleg.svg" alt="lleg">
+            <img class="{{valueIfsessionHas('display.rleg', "disabled")}} id="rleg" src="img/hangman/rleg.svg" alt="rleg">
         </div>
 
         <div class="game-section">
-            <p id="{{$display["state"]}}">
-                {{$display["stateText"]}}
-            </p>
             <p id="word">
             {{$word_in_page}}
             </p>
