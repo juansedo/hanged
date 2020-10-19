@@ -9,4 +9,5 @@
 
 @section('content')
     <p id="win">Congratulations!</p>
+    <p>The word was {{session()->get('word')}}</p>
 @endsection

@@ -17,7 +17,7 @@ use App\Http\Controllers\HomeController;
 */
 
 Route::get('/congratulations', [GameController::class, 'win'])
-->name('congratulations')
+->name('game.win')
 ->middleware('auth');
 
 Route::get('/failed', [GameController::class, 'fail'])

@@ -35,11 +35,11 @@ class GameController extends Controller
             session()->put('lifes', 5);
 
             // Display
-            //session()->put('display.head', 'disabled');
-            //session()->put('display.body', 'disabled');
-            //session()->put('display.arms', 'disabled');
-            //session()->put('display.lleg', 'disabled');
-            //session()->put('display.rleg', 'disabled');
+            session()->put('display.head', 'disabled');
+            session()->put('display.body', 'disabled');
+            session()->put('display.arms', 'disabled');
+            session()->put('display.lleg', 'disabled');
+            session()->put('display.rleg', 'disabled');
             session()->put('display.game',  '');
 
             // Used characters
@@ -61,7 +61,6 @@ class GameController extends Controller
             }
         }
 
-
         // Define word in page template
         if (session()->has('used-chars')) {
             $word_in_page = fillDisplayedWord(session()->get('word'), session()->get('used-chars'));
@@ -69,6 +68,13 @@ class GameController extends Controller
             $word_in_page = fillDisplayedWord(session()->get('word'));
         }
         
+        // Check victory
+        if(checkVictory($word_in_page)) {
+            return redirect()->route('game.win');
+        }
+
+        changeDisplay();
+
         return view('game.show', compact('word_in_page'));//session()->all();
     }
 

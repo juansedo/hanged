@@ -49,3 +49,40 @@ function fillDisplayedWord($magic_word = "", $attempts = array()) {
     }
     return $output;
 }
+
+/**
+ * function checkVictory()
+ * 
+ * If $word_in_page does not have underscores,
+ * it means the player won.
+
+ */
+function checkVictory($word_in_page) {
+    return strpos($word_in_page, "_") === FALSE;
+}
+
+/**
+ * function changeDisplay()
+ * 
+ * It changes the hangman display state
+ * according to lifes left.
+ */
+function changeDisplay() {
+    $word = session()->get('word');
+    $lifes = session()->get('lifes');
+    switch($lifes) {
+        case 0:
+            session()->put('display.rleg', '');
+        case 1:
+            session()->put('display.lleg', '');
+        case 2:
+            session()->put('display.arms', '');
+        case 3:
+            session()->put('display.body', '');
+        case 4:
+            session()->put('display.head', '');
+        case 5:
+        default:
+            break;
+    }
+}
