@@ -9,5 +9,5 @@
 
 @section('content')
     <p id="lose">You failed!</p>
-    <p>The word was {{'Hi'}}</p>
+    <p>The word was {{session()->get('word')}}</p>
 @endsection

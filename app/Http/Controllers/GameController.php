@@ -18,86 +18,12 @@ class GameController extends Controller
         $word_in_page = "";
 
         session()->forget('display.game');
+        session()->forget('word');
+        session()->forget('lifes');
 
         return view('game.show', compact('word_in_page'));
     }
     
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        //
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
-    }
-
     public function play($seed)
     {
         $word_in_page = "";
@@ -107,7 +33,6 @@ class GameController extends Controller
             // Define used word
             session()->put('word', strtoupper(Words::find($seed)->name));
             session()->put('lifes', 5);
-            session()->forget('state');
 
             // Display
             //session()->put('display.head', 'disabled');
@@ -130,7 +55,7 @@ class GameController extends Controller
             if(!checkAttempt($word, $ch)) {
                 $lifes = session()->get('lifes');
                 if($lifes <= 1) {
-                    return view('game.failed');
+                    return redirect()->route('game.failed');
                 }
                 session()->put('lifes', $lifes-1);
             }
@@ -143,7 +68,7 @@ class GameController extends Controller
         } else {
             $word_in_page = fillDisplayedWord(session()->get('word'));
         }
-
+        
         return view('game.show', compact('word_in_page'));//session()->all();
     }
 

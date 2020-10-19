@@ -19,10 +19,9 @@
         <div class="centered">
             @yield('content')
         </div>
-        <form method="POST" action="{{ route('game') }}">
-        @csrf
-            <input class="button" type="submit" value="Play again">
-        </form>
+        <a class="button" href="{{ route('game') }}">
+            Play again
+        </a>
     </div>
     {{-- JS Libraries --}}
     <script src="js/anime.min.js"></script>

@@ -188,7 +188,7 @@ changeDisplay($lifes);*/
             <form class="hanged-input" method="POST">
                 @csrf
                 <label class="input-underlined">
-                    <input id="ch" name="ch" type="text" maxlength="1" required>
+                    <input id="ch" name="ch" type="text" maxlength="1" required autofocus>
                     <span class="input-placeholder">Type a letter</span>
                 </label>
                 <input class="button" type="submit" value="Go!">

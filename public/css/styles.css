@@ -187,7 +187,7 @@ a {
     background-color: rgb(223, 223, 223);
 }
 
-input.button {
+.button {
     display: block;
     border: none;
     border-radius: 0.5rem;
@@ -199,9 +199,10 @@ input.button {
     padding: 0.8rem;
     margin: 0 auto;
     transition: all 100ms;
+    text-align: center;
 }
 
-input.button:hover {
+.button:hover {
     box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.2);
     transform: scale(1.05);
     transition: all 100ms;

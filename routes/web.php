@@ -21,7 +21,7 @@ Route::get('/congratulations', [GameController::class, 'win'])
 ->middleware('auth');
 
 Route::get('/failed', [GameController::class, 'fail'])
-->name('failed')
+->name('game.failed')
 ->middleware('auth');
 
 Auth::routes();
