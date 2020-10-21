@@ -8,7 +8,7 @@ At below, I will explain the installation process, as well as how to use it.
 
 ## Installation
 
-You must run the project in a PHP server. The simple way is downloading [Laragon](https://www.apachefriends.org/) (Windows) to simulate a PHP and database server on localhost.
+You must run the project in a PHP server. The simple way is downloading [Laragon](https://laragon.org/) (Windows) to simulate a PHP and database server on localhost.
 
 Run Laragon app, click on `Root` button and then download this repository as a [zip file](https://github.com/juansedo/hanged/archive/master.zip) and unzip it in that folder. Also, you must "Run all" (first button on the left).
 
