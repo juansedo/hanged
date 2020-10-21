@@ -2,50 +2,58 @@
 
 ## Introduction
 
-Using the knowledge learned in the course [Building Web Applications in PHP](https://www.coursera.org/learn/web-applications-php) from Coursera (with Dr. Charles Severance as teacher), I decided to make a small project: a **hangman game**.
+Using the knowledge learned in the course [Building Web Applications in PHP](https://www.coursera.org/learn/web-applications-php) from Coursera (with Dr. Charles Severance as teacher) and a [free Laravel course](https://bit.ly/3o6HKW2) (by Aprendible) from Youtube, I decided to make a small project: a **hangman game with a simple authentication system**.
 
 At below, I will explain the installation process, as well as how to use it.
 
 ## Installation
 
-<<<<<<< HEAD
-=======
+You must run the project in a PHP server. The simple way is downloading [Laragon](https://www.apachefriends.org/) (Windows) to simulate a PHP and database server on localhost.
+
+Run Laragon app, click on `Root` button and then download this repository as a [zip file](https://github.com/juansedo/hanged/archive/master.zip) and unzip it in that folder. Also, you must "Run all" (first button on the left).
+
+![Laragon interface](/readme-img/laragon-1.png)
+
+Next, open Laragon `Terminal` (button at left of `Root`) and go to project directory using `cd hanged`.
+
+You must execute this commands with server on:
+
 Commands:
+```bash
+mv .env.example .env                    #It creates .env
+composer install                        #Install packages
+npm install                             #Install packages
+php artisan key:generate                #It generates a key for .env
+sql -u root                             #To create the database
+CREATE DATABASE IF NOT EXISTS hanged;
+quit
+php artisan migrate --seed              #Install migrations and seedes
+php artisan serve                       #Run, for the first time, the server
 ```
-mv .env.example .env
-composer install
-php artisan key:generate
-php artisan migrate --seed
-php artisan serve
-```
->>>>>>> c018a7d364f661296c7a859a6cd4de1b79927c9f
-You must run these files in a PHP server. The fastest way is downloading [XAMPP](https://www.apachefriends.org/) (Windows) or [MAMP](https://www.mamp.info/) (Windows and Mac) to simulate a server on localhost.
 
-Go to your `htdocs` folder and then download this repository as a [zip file](https://github.com/juansedo/hanged/archive/master.zip) in that folder and unzip it. The `htdocs` folder is in different locations depending on your web server and OS:
-
-**Windows XAMPP:** C:\xampp\htdocs
-
-**Windows MAMP:** C:\MAMP\htdocs
-
-**MAC MAMP:** /Applications/MAMP/htdocs
+When all of them finish, you can use "Hanged!".
 
 ## Usage
 
-For accessing to webpage, you need to start the web server.
+For accessing to webpage, you need to start the Laragon server.
 
-**In XAMPP:**
-Click on Start button in front of Apache module.
+ 
+Then, you must register in database. Go to register section clicking on "Register" button.
 
-![XAMPP Start Server button](https://i.stack.imgur.com/z95JC.png)
+![Hanged Register Section](/readme-img/hanged-1.png)
 
-**In MAMP:**
-Click on Start Servers button.
+When you complete it and send the form, you are going to redirected to Game page.
 
-![MAMP Start Server button](https://www.wa4e.com/images/mamp-win-02-launch.png)
+![Hanged Game Section](/readme-img/hanged-2.png)
 
-Now, you can visit [localhost/hanged-master/index.php](localhost/hanged-master/index.php) (if you changed the directory's name, you must use localhost/<directory name>/index.php). 
+Also, you can use the login form for accessing to Game page.
 
-The password is `hanged123` for any username.
+Play button actives the game routine. A random seed for secret word is selected and the game will begin.
+
+You can guess characters using the letter input. If you win, you will be redirected to "congratulations" page, otherwise you will be redirected to "failed" page. Play Hanged! to know that final pages.
+
+![Hanged Game Section with Input](/readme-img/hanged-3.png)
+
 
 ## License
 
@@ -55,14 +63,5 @@ The content of this project itself is licensed under the [GNU General Public Lic
 
 Open Sans and Rowdies fonts have been used from [Google Fonts API](https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400&family=Rowdies:wght@300;400&display=swap).
 
-Used images:
-- https://img.freepik.com/free-photo/white-watercolor-paper-texture-background_88281-3862.jpg?size=626&ext=jpg
-- https://tse2.mm.bing.net/th?id=OIP.S2CMWlKAjg1mExLEj0cOVQHaE7&pid=15.1
-
 Youtube video:
-- https://youtu.be/Aplh1bK9E3Y
-
-Songs in the video:
-- https://www.youtube.com/watch?v=G0v9fh8YkGg
-- https://www.youtube.com/watch?v=9S7aCuRtGzU
-- https://youtu.be/TvBLb9QsKAU
+- *Coming soon*
